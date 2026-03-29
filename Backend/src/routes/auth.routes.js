@@ -1,12 +1,12 @@
 import {Router} from 'express'
-import authControllers from '../controllers/auth.controllers'
-import { authUser } from '../middleware/authMiddleware'
+import authControllers from '../controllers/auth.controllers.js'
+import { authUser } from '../middleware/authMiddleware.js'
 
 
 const router = Router()
 
 /** 
-@route POST /auth/register
+@route POST /api/auth/register
 @desc Register user
 @access Public
 */
@@ -15,7 +15,7 @@ router.post('/register' , authControllers.register )
 
 
 /** 
- * @route POST /auth/login
+ * @route POST /api/auth/login
  * @desc Login user
  * @access Public
 */
@@ -25,7 +25,7 @@ router.post('/login' , authControllers.login )
 
 
 /**
- * @route GET /auth/get-me
+ * @route GET /api/auth/get-me
  * @desc Get current user
  * @access Private
  */

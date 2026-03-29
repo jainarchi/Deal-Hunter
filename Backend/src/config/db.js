@@ -1,7 +1,11 @@
-import mongooe from "mongoose";
+import "dotenv/config"
+import mongoose from 'mongoose'
+
+
+
 
 const connectToDB = () =>{
-    mongooe.connect(process.env.MONGO_URL)
+    mongoose.connect(process.env.MONGO_URI)
     .then(() => {
         console.log('Database connected')
     })

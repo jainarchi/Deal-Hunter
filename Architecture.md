@@ -6,9 +6,9 @@
        | email          |               │
        | password       |               │
        +----------------+               │
-                │                        │
-                │ (JWT login/auth)       │
-                ▼                        │
+                │                       │
+                │ (JWT login/auth)      │
+                ▼                       │
        +----------------+               │
        |  GameSession   |               │
        |----------------|               │
@@ -20,7 +20,7 @@
        | lastOffer      |               │
        | finalPrice     |               │
        +----------------+               │
-                │                        │
+                │                       │
                 │ (Rounds stored separately)
                 ▼
        +----------------+
@@ -48,7 +48,7 @@
        | date           |
        +----------------+
                 │
-                │ (aggregate per user not make a separate schema )
+                │ (aggregate per user )
                 ▼
        +----------------+
        | Global Ranking |
@@ -76,7 +76,9 @@
 - Negotiation rounds → stored in Round collection (user offer + AI response).
 - currentRound increments each exchange; max rounds = 8.
 - Game ends → finalPrice calculated → new Leaderboard entry.
+
 - Global ranking → aggregate all Leaderboard scores per user.
+
 - AIProfile defines AI behavior per session and persists throughout GameSession.
 
 ### Key points
