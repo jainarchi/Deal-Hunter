@@ -38,8 +38,10 @@ const register = async (req, res) => {
       success: true,
       message: "User registered successfully",
       user,
-    });
+    })
+
   } catch (err) {
+    console.log(err)
     return res.status(500).json({
       success: false,
       message: "Something went wrong",
