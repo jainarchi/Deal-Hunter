@@ -1,4 +1,5 @@
 import leaderboardModel from "../models/leaderboard.model.js";
+import gameModel from "../models/gameSession.model.js";
 
 /**
 * @desc store all game sessions but 
@@ -39,26 +40,7 @@ import leaderboardModel from "../models/leaderboard.model.js";
 
 
 
- const getMyGames = async (req, res) => {
-  try {
-    const games = await gameModel.find({
-      userId: req.user.id
-    });
-
-    res.json({
-      success: true,
-      data: games
-    });
-
-  } catch (err) {
-    res.status(500).json({
-      success: false,
-      message: "Failed to fetch games"
-    })
-  }
-}
-
 export {
     getLeaderboard,
-    getMyGames
+    
 }

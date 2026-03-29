@@ -12,6 +12,7 @@ const gameSessionSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+
     AIProfileId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "aiProfile",
@@ -22,12 +23,23 @@ const gameSessionSchema = new mongoose.Schema(
       type: Number,
       default: 1,
     },
-    lastOffer: { type: Number },
-    finalPrice: { type: Number }, // set when game ends
-  },
-  { timestamps: true },
-);
 
+    lastOffer: { 
+      type: Number  
+    },
+
+    lastUserOffer: { 
+      type: Number, 
+      default : null
+    },
+
+    finalPrice: { 
+      type: Number ,
+      default : null
+    },
+  },
+  { timestamps: true }
+);
 
 const gameSessionModel = mongoose.model("gameSession", gameSessionSchema);
 

@@ -1,5 +1,5 @@
 import express from 'express';
-import { startGame, makeOffer, getGameSession } from '../controllers/gameSession.controllers.js';
+import { startGame, makeOffer, getGameSession , getMyGames } from '../controllers/gameSession.controllers.js';
 import {authUser} from '../middleware/authMiddleware.js'
 
 
@@ -17,7 +17,20 @@ router.post('/start', authUser ,  startGame);
  * @desc Make an offer in an existing game session
  * @access private
  */
-router.post('/:sessionId/offer', authUser , makeOffer);
+router.post('/offer/:sessionId', authUser , makeOffer);
+
+
+
+/**
+ * @route GET /api/game-session/my-games
+ * @desc Get all games played by user
+ * @access private
+ */
+router.get('/my-games', authUser, getMyGames);
+
+
+
+
 
 /**
  * @route GET /api/game-session/:sessionId

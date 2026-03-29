@@ -1,6 +1,6 @@
 import express from "express";
 import { authUser } from "../middleware/authMiddleware.js";
-import {getLeaderboard , getMyGames} from "../controllers/leaderboard.controllers.js";
+import {getLeaderboard } from "../controllers/leaderboard.controllers.js";
 
 const router = express.Router();
 
@@ -10,14 +10,6 @@ const router = express.Router();
  * @access private
  */
 router.get("/", authUser , getLeaderboard);
-
-
-/**
- * @route GET /api/leaderboard/my-games
- * @desc Get all games played by user
- * @access private
- */
-router.get('/my-games', authUser, getMyGames);
 
 
 

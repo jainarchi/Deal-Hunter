@@ -14,10 +14,11 @@ const roundSchema = new mongoose.Schema({
 
   userOffer: {
     type: Number,
-    required: true,
+    default : null
   },
   userMessage: {
     type: String,
+     default : null
   },
   
   AIResponse: {
@@ -26,6 +27,7 @@ const roundSchema = new mongoose.Schema({
   },
   AIMessage: {
     type: String,
+     default : null
   },
  
 }, {
